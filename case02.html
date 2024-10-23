@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>case 02</title>
+    <style>
+        body {
+            background-color: gray;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .line {
+            width: 80%;
+            height: 2px;
+            background: black;
+            margin-top: 50px;
+        }
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: 20px 0;
+        }
+        .red, .green, .blue, .yellow, .pink, .orange {
+            width: 130px;
+            height: 60px;
+            border-radius: 15px;
+        }
+        .red { background: wheat; }
+        .green { background: green; }
+        .blue { background: blue; }
+        .yellow { background: yellow; }
+        .pink { background: pink; }
+        .orange { background: orange; }
+
+        .single-box-container {
+            display: flex;
+            justify-content: flex-start;
+            width: 80%;
+            margin: 20px 0;
+        }
+        .right-box-container {
+            display: flex;
+            justify-content: flex-end;
+            width: 80%;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<h2>Java Script Queue</h2>
+
+<div class="single-box-container">
+    <div class="red"></div>
+</div>
+<div class="line"></div>
+
+<div class="box-container">
+    <div class="green"></div>
+    <div class="blue"></div>
+    <div class="yellow"></div>
+    <div class="pink"></div>
+</div>
+
+<div class="line"></div>
+
+<div class="right-box-container">
+    <div class="orange"></div>
+</div>
+<script>
+    // Array to hold all the boxes
+    const boxes = document.querySelectorAll('.red, .green, .blue, .yellow, .pink, .orange');
+    let currentIndex = 0;
+
+    // Function to change the background color of boxes one by one
+    function changeColorOneByOne() {
+        // Reset all boxes to their original colors
+        boxes.forEach(box => {
+            box.style.backgroundColor = ''; // Clear background color to revert to the original
+        });
+
+        // Set the current box to red
+        boxes[currentIndex].style.backgroundColor = 'red';
+
+        // Move to the next box (or loop back to the start)
+        currentIndex = (currentIndex + 1) % boxes.length; // Cycle through the boxes
+    }
+
+    setInterval(changeColorOneByOne, 1000);
+</script>
+
+</body>
+</html>
